@@ -34,8 +34,8 @@ main { padding: 0 18px; }
 .hero::before, .hero::after { content: ""; position: absolute; border: 1px solid rgba(255,255,255,.15); border-radius: 50%; pointer-events: none; }
 .hero::before { width: 280px; height: 280px; left: -155px; top: -165px; }
 .hero::after { width: 250px; height: 250px; right: -150px; bottom: -150px; }
-.hero-symbol { display: grid; place-items: center; width: 62px; height: 62px; margin: 0 auto 12px; border-radius: 19px; background: rgba(255,255,255,.18); }
-.hero-symbol svg { width: 42px; height: 42px; }
+.hero-symbol { width: 62px; height: 62px; margin: 0 auto 12px; }
+.hero-symbol img { display: block; width: 62px; height: 62px; border-radius: 17px; }
 .hero-eyebrow { color: rgba(255,255,255,.72); font-size: 11px; }
 .hero h2 { margin: 9px 0 9px; font-size: clamp(29px, 7vw, 37px); line-height: 1.1; letter-spacing: -.045em; }
 .hero > p:not(.eyebrow):not(.hero-example) { max-width: 320px; margin: 0 auto 22px; color: rgba(255,255,255,.87); font-size: 15px; line-height: 1.4; }

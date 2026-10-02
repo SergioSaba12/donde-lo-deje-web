@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="Pez azul con cola amarilla sobre fondo marino">
+  <defs>
+    <linearGradient id="sea" x1=".08" y1="0" x2=".92" y2="1">
+      <stop offset="0" stop-color="#1bbff0"/>
+      <stop offset=".48" stop-color="#0879d4"/>
+      <stop offset="1" stop-color="#102b9b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".49" cy=".36" r=".7">
+      <stop offset="0" stop-color="#8deaff" stop-opacity=".54"/>
+      <stop offset="1" stop-color="#32acde" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="body" x1=".25" y1="0" x2=".74" y2="1">
+      <stop offset="0" stop-color="#38b2ff"/>
+      <stop offset=".47" stop-color="#0869e1"/>
+      <stop offset="1" stop-color="#06429f"/>
+    </linearGradient>
+    <linearGradient id="yellow" x1="0" y1="0" x2=".8" y2="1">
+      <stop offset="0" stop-color="#fff882"/>
+      <stop offset=".52" stop-color="#ffe427"/>
+      <stop offset="1" stop-color="#f6a900"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="20" stdDeviation="19" flood-color="#07185e" flood-opacity=".34"/>
+    </filter>
+  </defs>
+
+  <rect width="1024" height="1024" fill="url(#sea)"/>
+  <rect width="1024" height="1024" fill="url(#glow)"/>
+  <circle cx="500" cy="516" r="396" fill="none" stroke="#d5f7ff" stroke-opacity=".09" stroke-width="4"/>
+  <circle cx="500" cy="516" r="302" fill="none" stroke="#d5f7ff" stroke-opacity=".09" stroke-width="4"/>
+
+  <g filter="url(#shadow)">
+    <!-- Cola y aletas, dibujadas detrás del cuerpo. -->
+    <path d="M330 490 C219 403 131 367 89 380 C128 468 126 545 78 654 C163 659 245 612 338 551 Z" fill="url(#yellow)" stroke="#103080" stroke-width="18" stroke-linejoin="round"/>
+    <path d="M317 509 C232 487 177 466 121 428 M305 538 C230 552 169 597 108 629" fill="none" stroke="#f69b08" stroke-width="17" stroke-linecap="round" opacity=".62"/>
+    <path d="M427 326 C452 250 510 194 599 171 C595 241 655 277 700 309 Z" fill="url(#yellow)" stroke="#10276d" stroke-width="17" stroke-linejoin="round"/>
+    <path d="M493 684 C479 766 515 820 600 848 C624 771 681 735 718 698 Z" fill="url(#yellow)" stroke="#10276d" stroke-width="17" stroke-linejoin="round"/>
+
+    <!-- Cuerpo original de pez cirujano azul. -->
+    <path d="M277 506 C287 337 451 251 622 273 C787 294 896 394 906 507 C913 632 785 731 613 749 C456 767 308 672 277 506 Z" fill="url(#body)" stroke="#112b78" stroke-width="21" stroke-linejoin="round"/>
+    <path d="M340 389 C462 316 613 312 734 353 C663 354 601 399 541 456 C470 453 398 438 332 415 Z" fill="#10214d" opacity=".96"/>
+    <path d="M311 481 C390 458 488 475 555 521 C609 558 624 626 643 694 C531 702 431 668 365 614 C405 606 451 579 470 550 C421 527 365 520 310 531 Z" fill="#102454" opacity=".93"/>
+    <path d="M352 617 C471 708 620 717 731 687" fill="none" stroke="#62c9ff" stroke-opacity=".33" stroke-width="23" stroke-linecap="round"/>
+    <path d="M426 568 C470 568 505 603 509 649 C463 649 425 626 405 596 Z" fill="url(#yellow)" stroke="#10276d" stroke-width="14" stroke-linejoin="round"/>
+
+    <!-- Ojo grande y sonrisa clara a tamaño pequeño. -->
+    <ellipse cx="745" cy="439" rx="75" ry="85" fill="#f6fbff" stroke="#10276d" stroke-width="16"/>
+    <ellipse cx="767" cy="451" rx="34" ry="45" fill="#163263"/>
+    <circle cx="778" cy="431" r="12" fill="#fff"/>
+    <path d="M796 578 C822 605 856 606 884 584" fill="none" stroke="#10306f" stroke-width="16" stroke-linecap="round"/>
+    <path d="M863 501 C879 508 892 509 904 504" fill="none" stroke="#07357e" stroke-width="11" stroke-linecap="round"/>
+  </g>
+
+  <path d="M191 265 C191 251 199 239 211 228 C223 239 231 251 231 265 C231 276 222 285 211 285 C200 285 191 276 191 265 Z" fill="#effdff" opacity=".66"/>
+  <circle cx="211" cy="262" r="6" fill="#168ace" opacity=".7"/>
+  <circle cx="824" cy="234" r="13" fill="#d2faff" opacity=".37"/>
+  <circle cx="862" cy="278" r="7" fill="#d2faff" opacity=".35"/>
+</svg>

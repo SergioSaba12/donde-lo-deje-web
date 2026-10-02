@@ -2,6 +2,8 @@
 
 App web instalable para iPhone. El proyecto nativo Swift permanece en `../DondeLoDeje`. El nombre visible es Dory; el identificador interno del almacén y de las copias se conserva para no perder registros existentes.
 
+El icono muestra un pez cirujano azul original. El SVG maestro está en `icons/dory-logo.svg`; el icono PNG de iPhone se genera a partir de él.
+
 ## Qué hace
 
 - Guarda dónde dejaste cualquier objeto, por voz o por teclado.
