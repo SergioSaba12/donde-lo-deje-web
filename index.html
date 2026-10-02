@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f5f5f7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Dónde lo dejé">
+    <meta name="description" content="Recuerda dónde dejaste tus cosas y encuentra su último lugar.">
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="./icons/icon-192.png">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Dónde lo dejé</title>
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <img class="brand-icon" src="./icons/icon-192.png" alt="">
+          <div>
+            <span class="eyebrow">TU MEMORIA PERSONAL</span>
+            <h1>Dónde lo dejé</h1>
+          </div>
+        </div>
+        <button id="open-form" class="icon-button" type="button" aria-label="Guardar o buscar escribiendo">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        </button>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-symbol" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none"><path d="M32 57s21-17.7 21-34a21 21 0 0 0-42 0c0 16.3 21 34 21 34Z" fill="white"/><rect x="25" y="16" width="14" height="14" rx="3.5" fill="#176bde"/></svg>
+          </div>
+          <p class="eyebrow hero-eyebrow">SIEMPRE A MANO</p>
+          <h2 id="hero-title">¿Dónde lo dejé?</h2>
+          <p>Guarda dónde están tus cosas y pregunta cuando las necesites.</p>
+          <button id="start-voice" class="primary-button" type="button">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="9" y="3" width="6" height="12" rx="3" fill="currentColor"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3m-4 0h8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+            Hablar
+          </button>
+          <p class="hero-example">«Guardé el pasaporte en la maleta»</p>
+        </section>
+
+        <section id="answer-section" class="answer-card" aria-live="polite" hidden>
+          <div class="section-label">RESPUESTA</div>
+          <div class="answer-row">
+            <p id="answer-text"></p>
+            <button id="repeat-answer" class="round-button" type="button" aria-label="Repetir respuesta por voz">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z" fill="currentColor"/><path d="M16 9a4 4 0 0 1 0 6m2.5-9a8 8 0 0 1 0 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+        </section>
+
+        <section class="recent-section" aria-labelledby="recent-title">
+          <div class="section-heading">
+            <h2 id="recent-title">Últimos lugares</h2>
+            <span id="count-label" class="count-label">0 objetos</span>
+          </div>
+          <div id="placements" class="placement-list"></div>
+          <div id="empty-state" class="empty-state">
+            <span class="empty-icon" aria-hidden="true">⌑</span>
+            <h3>Aún no hay objetos guardados</h3>
+            <p>Pulsa Hablar o el botón + para guardar el primero.</p>
+          </div>
+          <p class="section-footnote">Se muestra el lugar más reciente de cada objeto.</p>
+        </section>
+
+        <section class="data-section" aria-labelledby="data-title">
+          <h2 id="data-title">Tus datos</h2>
+          <p>Se guardan en este dispositivo. Haz una copia si quieres conservarlos al cambiar de móvil o navegador.</p>
+          <div class="data-actions">
+            <button id="export-data" class="secondary-button" type="button">Exportar copia</button>
+            <button id="import-data" class="secondary-button" type="button">Importar copia</button>
+            <input id="import-file" type="file" accept="application/json,.json" hidden>
+          </div>
+        </section>
+      </main>
+
+      <footer class="bottom-bar">
+        <button id="bottom-form" class="keyboard-button" type="button" aria-label="Guardar o buscar escribiendo">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M6 9h.01M10 9h.01M14 9h.01M18 9h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M7 15.5h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <button id="bottom-voice" class="bottom-primary" type="button">Hablar</button>
+      </footer>
+    </div>
+
+    <dialog id="form-dialog" class="sheet">
+      <form id="entry-form" novalidate>
+        <div class="sheet-handle" aria-hidden="true"></div>
+        <div class="sheet-header">
+          <button class="text-button cancel-dialog" type="button">Cancelar</button>
+          <h2 id="form-title">Guardar objeto</h2>
+          <button id="submit-entry" class="text-button strong" type="submit">Guardar</button>
+        </div>
+        <div class="sheet-content">
+          <fieldset class="segmented-control" aria-label="Acción">
+            <label><input type="radio" name="mode" value="remember" checked><span>Guardar</span></label>
+            <label><input type="radio" name="mode" value="find"><span>Buscar</span></label>
+          </fieldset>
+          <label class="field-label" for="object-input">OBJETO</label>
+          <input id="object-input" class="field" name="object" type="text" autocomplete="off" placeholder="Ej. el pasaporte, mis gafas, una caja" required>
+          <p class="field-help">Puedes escribir cualquier objeto.</p>
+          <div id="location-field">
+            <label class="field-label" for="location-input">LUGAR</label>
+            <input id="location-input" class="field" name="location" type="text" autocomplete="off" placeholder="Ej. en la maleta">
+            <p class="field-help">Describe el lugar con el detalle que te ayude a encontrarlo.</p>
+          </div>
+          <p id="form-error" class="inline-error" role="alert" hidden></p>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="voice-dialog" class="sheet voice-sheet">
+      <div class="sheet-handle" aria-hidden="true"></div>
+      <div class="sheet-header">
+        <button id="cancel-voice" class="text-button" type="button">Cancelar</button>
+        <h2>Hablar</h2>
+        <span class="header-spacer"></span>
+      </div>
+      <div class="voice-content">
+        <div id="voice-orb" class="voice-orb" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="9" y="3" width="6" height="12" rx="3" fill="currentColor"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3m-4 0h8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+        </div>
+        <h3 id="voice-title">Te escucho</h3>
+        <p id="transcript" class="transcript" aria-live="polite">Di dónde has dejado algo o pregunta por un objeto.</p>
+        <p id="voice-error" class="inline-error" role="alert" hidden></p>
+        <button id="finish-voice" class="primary-button" type="button">Terminar</button>
+        <button id="retry-voice" class="text-button retry-button" type="button" hidden>Reintentar</button>
+      </div>
+    </dialog>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  </body>
+</html>
