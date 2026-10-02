@@ -224,7 +224,7 @@ async function exportData() {
     const url = URL.createObjectURL(blob);
     const anchor = document.createElement("a");
     anchor.href = url;
-    anchor.download = `donde-lo-deje-${new Date().toISOString().slice(0, 10)}.json`;
+    anchor.download = `dory-${new Date().toISOString().slice(0, 10)}.json`;
     document.body.append(anchor);
     anchor.click();
     anchor.remove();

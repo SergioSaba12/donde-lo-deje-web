@@ -1,6 +1,6 @@
-# Dónde lo dejé · versión web
+# Dory · versión web
 
-App web instalable para iPhone. El proyecto nativo Swift permanece en `../DondeLoDeje`.
+App web instalable para iPhone. El proyecto nativo Swift permanece en `../DondeLoDeje`. El nombre visible es Dory; el identificador interno del almacén y de las copias se conserva para no perder registros existentes.
 
 ## Qué hace
 

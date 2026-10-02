@@ -68,7 +68,7 @@ export function latestPlacements(records) {
 
 export function validateBackup(data) {
   if (!data || data.app !== "DondeLoDejeWeb" || data.version !== 1 || !Array.isArray(data.placements)) {
-    throw new Error("Este archivo no es una copia válida de Dónde lo dejé.");
+    throw new Error("Este archivo no es una copia válida de Dory.");
   }
   if (data.placements.length > 10000) throw new Error("La copia contiene demasiados registros.");
   const ids = new Set();
